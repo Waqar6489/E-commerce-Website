@@ -3,6 +3,13 @@ import Home_productList from "./Pages/Home_productList";
 import ProductDetail from "./Pages/ProductDetail";
 import Navbar from "./components/Navbar";
 import CartPage from './Pages/Cartpage';
+import Checkoutpage from './Pages/Checkoutpage';
+import Footer from './components/Footer';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
+import Login from './Pages/Login';
+import Signup from './Pages/Signup';
+import { PrivateRoutes } from './components/PrivateRoutes';
+
 function APP(){
   return (
     <div>
@@ -11,7 +18,15 @@ function APP(){
           <Route path="/" element={<Home_productList />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<CartPage />} />
-      </Routes>
+          <Route element={<PrivateRoutes />}>
+              <Route path='/checkout'element={<Checkoutpage/>}/>
+          </Route>
+          <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/signup' element={<Signup/>}/>
+        </Routes>
+        <Footer/>
+
     </div>
   );
 }

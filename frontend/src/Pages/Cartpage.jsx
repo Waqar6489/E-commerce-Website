@@ -1,4 +1,5 @@
 import { useCard } from "../Context/CardContext";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
     // Check karein ke context mein 'UpdateQuantity' ki spelling yahi hai?
@@ -63,7 +64,13 @@ const CartPage = () => {
                         <h2 className="text-2xl font-bold">Total Price:</h2>
                         <p className="text-2xl text-green-600 font-bold">${total.toFixed(2)}</p>
                     </div>
+                    <div className="flex justify-end my-4">
+                        <Link to ="/checkout">
+                        <button className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:active:scale-95 shadow-md hover:shadow-lg">Proceed to Checkout</button>
+                        </Link>
+                    </div>
                 </div>
+                
             )}
         </div>
     );

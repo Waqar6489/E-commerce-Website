@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCard } from '../Context/CardContext';
+import { getAcessToken } from '../utills/auth';
 
 function ProductDetail() {
     const { id } = useParams();
@@ -11,6 +12,14 @@ function ProductDetail() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const {addToCart} = useCard();
+
+    const handleAddToCart =()=>{
+        if(!localStorage.getItem('access_token')){
+           window.location.href = "/login";
+          return;
+        }
+        addToCart(product)
+      }
 
     useEffect(() => {
         fetch(`${VITE_API_BASE_URL}/api/products/${id}/`)
@@ -56,7 +65,7 @@ function ProductDetail() {
                     <div className="text-gray-600 mb-4 text-justify" dangerouslySetInnerHTML={{ __html: product.long_description }} /> 
                     <p className="text-xl font-bold text-gray-800 mb-6">Stock: {product.stock}</p>
                     <p className="text-2xl font-bold text-blue-600">${product.price}</p>
-                    <button onClick={()=> addToCart(product)} className="mt-6 cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:active:scale-95 shadow-md hover:shadow-lg"> Add to Cart</button>
+                    <button onClick={handleAddToCart} className="mt-6 cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:active:scale-95 shadow-md hover:shadow-lg"> Add to Cart</button>
                 </div>
             </div>
         </div>

@@ -1,11 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCard } from '../Context/CardContext';
+import { getAcessToken } from '../utills/auth';
 
 
 function ProductCard({product}){
     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
     const {addToCart} = useCard()
+    const handleAddToCart =()=>{
+        if(!localStorage.getItem('access_token')){
+           window.location.href = "/login";
+          return;
+        }
+        addToCart(product)
+      }
     return (
         
             <div className="group relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 hover:scale-105 flex flex-col h-full border border-gray-100">
@@ -45,7 +53,7 @@ function ProductCard({product}){
                     <p className="text-2xl font-bold text-blue-600">
                         ${parseFloat(product.price).toFixed(2)}
                     </p>
-                    <button onClick={()=>  addToCart(product)} className=" cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:active:scale-95 shadow-md hover:shadow-lg">
+                    <button onClick={handleAddToCart} className=" cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:active:scale-95 shadow-md hover:shadow-lg">
                         Add To Cart
                     </button>
                 </div>
