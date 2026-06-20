@@ -1,10 +1,12 @@
 from rest_framework.response import Response
-from .models import Category, Product, Cart, CartItem, Order, OrderItem
-from .Serializers import CategorySerializer, ProductSerializer, CartItemSerializer, CartSerializer,UserSerializer, RegistrationSerializer
+from .models import Category, Product, Cart, CartItem, Order, OrderItem,ContactForm
+from .Serializers import CategorySerializer, ProductSerializer, CartItemSerializer, CartSerializer,UserSerializer, RegistrationSerializer,ContactFormSerializer
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated,AllowAny
 from rest_framework import status
+from django.core.mail import send_mail
 from django.contrib.auth.models import User
+from django.conf import settings
 
 # Create your views here.
 
@@ -124,3 +126,29 @@ def register_view(request):
         return Response({'message':"user Sucessfully created", 'user': UserSerializer(user_serializer).data}, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+@api_view(['POST'])
+def contact(resquest):
+    serializer = ContactFormSerializer(data = resquest.data)
+    if serializer.is_valid():
+        data= serializer.validated_data
+        
+        # Construct the email content
+      
+        email_subject = f"New Contact Form: {data['subject']}"
+        email_message = f"You received a new message from your website contact form:\n\n" \
+                            f"Name: {data['name']}\n" \
+                            f"Email: {data['email']}\n\n" \
+                            f"Message:\n{data['message']}" 
+        try:
+            send_mail(
+                subject=email_subject,
+                message=email_message,
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[settings.ADMIN_RECEIVER_EMAIL],
+                fail_silently=False,
+            )
+            return Response({"success": "Message sent successfully!"}, status= status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"error": "Failed to send email. Please try again later."}, status= status.HTTP_500_INTERNAL_SERVER_ERROR)  
+        
+    return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)        

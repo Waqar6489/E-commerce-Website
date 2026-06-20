@@ -9,6 +9,7 @@ import PrivacyPolicy from './Pages/PrivacyPolicy';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import { PrivateRoutes } from './components/PrivateRoutes';
+import ContactForm from './Pages/ContactForm';
 
 function APP(){
   return (
@@ -24,6 +25,7 @@ function APP(){
           <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
+          <Route path='/contact' element={<ContactForm/>}/>
         </Routes>
         <Footer/>
 

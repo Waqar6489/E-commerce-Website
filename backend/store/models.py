@@ -67,4 +67,14 @@ class CartItem(models.Model):
         return f"{self.quantity} x {self.product.name}"  
 @property
 def subtotal(self):
-    return self.product.price * self.quantity    
+    return self.product.price * self.quantity
+
+
+class ContactForm(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.CharField() 
+
+    def __str__(self):
+        return self.name    

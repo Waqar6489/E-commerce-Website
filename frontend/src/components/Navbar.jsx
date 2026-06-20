@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 import { getAcessToken, cleartoken } from "../utills/auth";
 import Login from "../Pages/Login";
+import Home_productList from "../Pages/Home_productList";
 
 const Navbar = () => {
     const { cartItems } = useCard(); 
@@ -31,6 +32,18 @@ const Navbar = () => {
                 E-Commerce
             </Link>
 
+             <div className="flex items-center gap-6">
+                <Link to="/" className="text-white text-lg font-bold hover:text-gray-300 transition-colors">
+                Home
+            </Link>
+                <a href="#shop" className="text-white text-lg font-bold hover:text-gray-300 transition-colors">
+                Product
+            </a>
+                <Link to="/contact" className="text-white text-lg font-bold hover:text-gray-300 transition-colors">
+                Contact us
+            </Link>
+                </div>
+            
             {/* Navigation Controls */}
             <div className="flex items-center gap-6"> 
                 
