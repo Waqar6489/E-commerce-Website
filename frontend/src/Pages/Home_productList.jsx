@@ -81,38 +81,62 @@ function Home_productList() {
     <div className="w-full min-h-screen bg-white font-sans antialiased">
       
       {/* ✨ 1. PREMIUM HERO SECTION */}
-      <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=1000')] bg-cover opacity-10 mix-blend-overlay"></div>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center relative z-10">
-          <div className="space-y-6 text-center md:text-left">
-            <span className="inline-block bg-blue-500/20 text-blue-400 font-semibold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase backdrop-blur-sm">
-              New Season Arrival
-            </span>
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-              Elevate Your <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                Shopping Experience
-              </span>
-            </h1>
-            <p className="text-gray-300 text-base md:text-lg max-w-md mx-auto md:mx-0">
-              Discover amazing collections of high-quality premium products designed just for you with cutting-edge layouts.
-            </p>
-            <div className="pt-2 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <a href="#shop" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center active:scale-98">
-                Explore Shop
-              </a>
-            </div>
-          </div>
-          <div className="hidden md:flex justify-center relative">
-            <div className="absolute w-72 h-72 bg-blue-500/30 rounded-full blur-3xl -top-10 -left-10 animate-pulse"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=600&auto=format&fit=crop&q=80" 
-              alt="Hero Showcase" 
-              className="rounded-2xl shadow-2xl border border-gray-800 object-cover w-[450px] h-[400px] transform hover:scale-102 transition-transform duration-500"
-            />
-          </div>
+      <section className="relative min-h-screen flex items-center justify-center bg-[#132222] text-white overflow-hidden py-20 px-6">
+      {/* Background Subtle Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none z-10" />
+
+      {/* Centered Hero Image Container */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="relative w-full max-w-[800px] aspect-[4/3] md:aspect-[16/10] opacity-80 md:opacity-100 mix-blend-lighten">
+          {/* <img 
+            src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=1200&auto=format&fit=crop" // Replace with your exact rose in glass cloche image URL
+            alt="Roses in glass dome" 
+            className="w-full h-full object-cover filter brightness-90 contrast-115"
+          /> */}
         </div>
-      </section>
+      </div>
+
+      {/* Scattered Petals Decorative Elements (Optional Visual Flavor) */}
+      <div className="absolute bottom-10 left-1/4 w-4 h-2 bg-red-800/40 blur-[1px] rounded-full transform rotate-12 hidden md:block" />
+      <div className="absolute bottom-16 right-1/3 w-6 h-3 bg-red-900/50 blur-[0.5px] rounded-full transform -rotate-45 hidden md:block" />
+
+      {/* Main Content Content Area */}
+      <div className="relative z-20 max-w-4xl mx-auto text-center flex flex-col items-center justify-center h-full">
+        
+        {/* Top Subtitle */}
+        <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-gray-400 font-medium mb-4 max-w-md md:max-w-none">
+          Digital product Serving tech Valley For 121 Years
+        </p>
+
+        {/* Main Elegant Title */}
+        <h1 className="font-serif text-5xl sm:text-6xl md:text-8xl font-normal tracking-wide leading-[1.05] max-w-3xl selection:bg-red-900">
+          Create a <span className="italic block md:inline">Digital</span> <br className="hidden md:block"/> 
+          <span className="block mt-1 md:mt-0">Moment</span>
+        </h1>
+
+        {/* Supporting Description */}
+        <p className="mt-6 text-xs md:text-sm text-gray-300 font-light tracking-wide max-w-md md:max-w-lg leading-relaxed mix-blend-plus-lighter">
+          Choose from our selection of stunning arrangements or stop into the shop to create the perfect Electronic device.
+        </p>
+
+        {/* Minimalist Ghost Buttons */}
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-6 sm:px-0">
+          <a 
+            href="#shop" 
+            className="border border-white/40 hover:border-white bg-black/10 hover:bg-white/10 backdrop-blur-sm text-white text-xs tracking-[0.2em] uppercase px-8 py-4 transition-all duration-300 text-center min-w-[200px]"
+          >
+            Shop Now
+          </a>
+          <a 
+            href="/contact" 
+            className="border border-white/40 hover:border-white bg-black/10 hover:bg-white/10 backdrop-blur-sm text-white text-xs tracking-[0.2em] uppercase px-8 py-4 transition-all duration-300 text-center min-w-[200px]"
+          >
+           Contact us
+          </a>
+        </div>
+
+      </div>
+    </section>
 
       {/* 🎛️ 2. FILTER & SEARCH CONTROL SECTION */}
       <section id="shop" className="max-w-7xl mx-auto px-4 md:w-8xl pt-16 pb-4">
