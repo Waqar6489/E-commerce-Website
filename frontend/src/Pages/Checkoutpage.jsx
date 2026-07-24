@@ -135,7 +135,7 @@ const Checkoutpage = () => {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-600 mb-1">Shipping Address</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Shipping Address</label>
                             <textarea  
                                 name="address" 
                                 value={Form.address} 
