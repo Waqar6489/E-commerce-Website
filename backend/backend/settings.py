@@ -32,12 +32,16 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-if not DEBUG: 
+if not DEBUG:
     SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True 
-    CSRF_COOKIE_SECURE = True 
-    SECURE_BROWSER_XSS_FILTER = True 
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = "DENY"
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_REFERRER_POLICY = "same-origin"
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS","").split(",")
 
@@ -173,11 +177,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://e-commerce-website-one-murex-83.vercel.app/",
+    "https://e-commerce-website-git-main-waqar6489s-projects.vercel.app",
 ]
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
-    "https://e-commerce-website-one-murex-83.vercel.app/",
+    "https://e-commerce-website-git-main-waqar6489s-projects.vercel.app",
 ]
 
 
