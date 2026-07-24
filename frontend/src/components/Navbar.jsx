@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useCard } from "../Context/CardContext";
 import { Link, useNavigate } from "react-router-dom"; 
-import { BsCart3 } from "react-icons/bs";
+import { BsCart2 } from "react-icons/bs";
 import { FiMenu, FiX } from "react-icons/fi"; // Added for responsive hamburger menu
 import { getAcessToken, cleartoken } from "../utills/auth";
 
@@ -67,7 +67,7 @@ const Navbar = () => {
                     {/* Cart Icon */}
                     <div className="flex items-center">
                         <Link to="/cart" className="text-white relative hover:text-gray-300 transition-colors">
-                            <BsCart3 className="text-xl" /> 
+                            <BsCart2 className="text-xl" /> 
                             {cartCount > 0 && (
                                 <span className="absolute -top-2 -right-3 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex justify-center items-center">
                                     {cartCount}
@@ -81,7 +81,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-4 md:hidden">
                     {/* Cart Icon on Mobile */}
                     <Link to="/cart" className="text-white relative hover:text-gray-300 transition-colors mr-2">
-                        <BsCart3 className="text-xl" /> 
+                        <BsCart2 className="text-xl" /> 
                         {cartCount > 0 && (
                             <span className="absolute -top-2 -right-3 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex justify-center items-center">
                                 {cartCount}
