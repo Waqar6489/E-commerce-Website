@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ProductList from '../components/ProductCard';
+import { FaShippingFast } from "react-icons/fa";
 import { FaBox } from "react-icons/fa";
 import { HiArrowPath } from "react-icons/hi2";
 import { RiSecurePaymentFill } from "react-icons/ri";
@@ -229,7 +230,7 @@ function Home_productList() {
       <section className="bg-gray-50 border-y border-gray-100 py-16 mt-12">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-4 p-2">
-            <div className="text-3xl bg-blue-50 p-3 rounded-2xl text-blue-600"></div>
+            <div className="text-3xl bg-blue-50 p-3 rounded-2xl text-blue-600"><FaShippingFast></FaShippingFast></div>
             <div>
               <h4 className="font-bold text-gray-800 text-base">Free Shipping</h4>
               <p className="text-gray-500 text-xs mt-1">On orders over $150 safely packaged</p>
