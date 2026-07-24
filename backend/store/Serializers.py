@@ -9,17 +9,28 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
+    image_url = serializers.SerializerMethodField()
     class Meta:
         model = Product
         fields = '__all__'
 
+    def get_image_url(self, obj):
+        if obj.image:
+            return obj.image.url
+        return None
+
 class CartItemSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(source='product.name', read_only=True)
     product_price = serializers.DecimalField(source='product.price', max_digits=10, decimal_places=2, read_only=True)
-    product_image = serializers.ImageField(source='product.image', read_only=True)
+    product_image = serializers.SerializerMethodField()
     class Meta:
         model = CartItem
         fields = '__all__'
+    def get_product_image(self, obj):
+        # Pehle check karein ke product aur uski image exist karti hai ya nahi
+        if obj.product and obj.product.image:
+            return obj.product.image.url
+        return None    
 
 class CartSerializer(serializers.ModelSerializer):
     items = CartItemSerializer(many=True, read_only=True)
