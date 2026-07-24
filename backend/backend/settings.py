@@ -177,11 +177,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://e-commerce-website-git-main-waqar6489s-projects.vercel.app",
+    "https://e-commerce-website-one-murex-83.vercel.app",
 ]
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
-    "https://e-commerce-website-git-main-waqar6489s-projects.vercel.app",
+    "https://e-commerce-website-one-murex-83.vercel.app",
 ]
 
 
