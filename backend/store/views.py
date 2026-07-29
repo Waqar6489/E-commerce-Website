@@ -145,7 +145,7 @@ def contact(resquest):
                 message=email_message,
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[settings.ADMIN_RECEIVER_EMAIL],
-                fail_silently=False,
+                fail_silently=True,
             )
             return Response({"success": "Message sent successfully!"}, status= status.HTTP_200_OK)
         except Exception as e:
