@@ -32,6 +32,16 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "https://e-commerce-website-one-murex-83.vercel.app",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://e-commerce-website-xvq6.onrender.com",
+    "https://e-commerce-website-one-murex-83.vercel.app",
+]
+CORS_ALLOW_CREDENTIALS = False
+
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
@@ -180,16 +190,9 @@ ADMIN_URL=os.getenv('ADMIN_URL')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "https://e-commerce-website-one-murex-83.vercel.app",
-]
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:5173",
-    "https://e-commerce-website-one-murex-83.vercel.app",
-]
+
+
 
 
 REST_FRAMEWORK={
